@@ -13,7 +13,7 @@ TIC TAC TOE Game:
         
         • Allow players to start a new game without restarting the program.
         
-        • Modify the game to allow different board sizes (e.g., 4x4 or 5x5) for a more challenging experience.
+        • Modify to allow different board sizes (e.g., 4x4 or 5x5) for a more challenging experience.
         
 '''
 
