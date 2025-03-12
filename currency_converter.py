@@ -55,7 +55,7 @@ def convert(amount, source_currency, target_currency):
 
 def main():
     history = []  # List to store the conversion history
-    
+
     while True:
         amount = get_amount()
         source_currency = get_currency('Source')
@@ -70,7 +70,7 @@ def main():
             if target_currency != source_currency:
                 converted_amount = convert(amount, source_currency, target_currency)
                 print(f'{amount} {source_currency} is equal to {converted_amount:.2f} {target_currency}')
-                
+
                 # Add to history
                 history.append(f'{amount} {source_currency} -> {converted_amount:.2f} {target_currency}')
             else:
@@ -94,4 +94,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
