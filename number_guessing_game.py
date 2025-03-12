@@ -50,6 +50,7 @@ class NumberGuessingGame:
 
         print(f'Best score so far (fewest attempts): {self.best_score}')
 
+
 # Main game loop
 game = NumberGuessingGame()
 while True:
