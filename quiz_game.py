@@ -51,10 +51,10 @@ def get_questions_by_category(category_name, quiz_data):
     return None
 
 def run_quiz(quiz, categories):
-    
+
     quiz_category = ask_category(categories)
     quiz_by_category = get_questions_by_category(categories_dict[quiz_category], quiz)
-    
+
     shuffle(quiz_by_category)
 
     score = 0
