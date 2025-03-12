@@ -19,13 +19,12 @@ def values(dice):
         result.append(randint(1,6))
     return tuple(result)
 
-    
 def dice_rolling_game(choise = input("Roll the dice? (y/n): ").lower(), 
                       dice = int(input("Enter number of dice: "))):
     if dice == 0:
         print(f'Dice entered = {dice}. Please enter number greater tham 1.')
         return
-    
+
     roll_count = 0
     while True:
         if choise == 'y':
