@@ -1,0 +1,7 @@
+python
+random
+speaker
+notebook
+keyboard
+information
+game
