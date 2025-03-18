@@ -18,9 +18,28 @@ COWS AND BULLS GAME:
 from random import randint
 
 def generated_number():
+    """
+    Generates a random 4-digit number as a string.
+
+    Returns:
+        str: A randomly generated 4-digit number.
+    """
     return str(randint(1000, 9999))  # Generate a 4-digit number as a string
 
 def validate_guess(player_guess, actual_number):
+    """
+    Validates the player's guess against the actual number and 
+    calculates the number of cows and bulls.
+
+    Args:
+        player_guess (str): The player's guessed 4-digit number.
+        actual_number (str): The actual 4-digit number to be guessed.
+
+    Returns:
+        List[int]: A list containing the count of cows and bulls in the format [cows, bulls].
+                   - Cows: Correct digits in the wrong position.
+                   - Bulls: Correct digits in the correct position.
+    """
     cows_and_bulls = [0, 0]  # [cows, bulls]
 
     # Convert both player_guess and actual_number into lists for easier tracking
@@ -41,6 +60,11 @@ def validate_guess(player_guess, actual_number):
     return cows_and_bulls
 
 def main():
+    """
+    The main function to run the Cows and Bulls game. It generates a random 4-digit number,
+    prompts the player to guess the number, and provides feedback in the form of cows and bulls
+    until the player guesses the correct number.
+    """
     actual_number = generated_number()  # Generate the number as a string
     print(actual_number)
     print("I generated a 4-digit number, try to guess it!")

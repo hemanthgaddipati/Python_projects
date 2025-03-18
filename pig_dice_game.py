@@ -19,9 +19,29 @@ PIG DICE GAME:
 from random import randint
 
 def roll_die():
+    """
+    Simulates rolling a six-sided die.
+
+    Returns:
+        int: A random integer between 1 and 6, inclusive, representing the die roll.
+    """
     return randint(1,6)
 
 def play_turn(player_name):
+    """
+    Plays a single turn for a player in the Pig Dice Game.
+
+    Args:
+        player_name (str): The name of the player whose turn it is.
+
+    Gameplay:
+        - Rolls the die repeatedly to accumulate points for the turn.
+        - If the player rolls a 1, they lose all points for the turn and their turn ends.
+        - The player can choose to stop rolling and secure their accumulated points.
+
+    Returns:
+        int: The total points scored by the player during their turn.
+    """
     turn_score = 0
     print(f"\n{player_name}'s turn")
 
@@ -39,6 +59,21 @@ def play_turn(player_name):
             return turn_score
 
 def main():
+    """
+    The main function to run the Pig Dice Game.
+
+    Gameplay:
+        - Two players take turns rolling the die to accumulate points.
+        - The first player to reach or exceed 100 points wins the game.
+        - Displays the scores after each turn and announces the winner.
+
+    Features:
+        - Alternates turns between two players.
+        - Ends the game when a player reaches the target score of 100.
+
+    Returns:
+        None
+    """
     scores = [0, 0]
     current_player = 0
 

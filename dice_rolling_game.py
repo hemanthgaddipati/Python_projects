@@ -14,13 +14,34 @@ Dice rolling game:
 from random import randint
 
 def values(dice):
+    """
+    Generates random values for a specified number of dice rolls.
+
+    Args:
+        dice (int): The number of dice to roll.
+
+    Returns:
+        tuple: A tuple containing the results of the dice rolls.
+    """
     result = []
     for _ in range(dice):
         result.append(randint(1,6))
     return tuple(result)
 
-def dice_rolling_game(choise = input("Roll the dice? (y/n): ").lower(), 
+def dice_rolling_game(choise = input("Roll the dice? (y/n): ").lower(),
                       dice = int(input("Enter number of dice: "))):
+    """
+    Simulates a dice rolling game where the user can roll a specified number of dice 
+    and decide whether to roll again.
+
+    Args:
+        choise (str, optional): The user's choice to roll the dice ('y') or not ('n'). 
+        Defaults to input from the user.
+        dice (int, optional): The number of dice to roll. Defaults to input from the user.
+
+    Returns:
+        None
+    """
     if dice == 0:
         print(f'Dice entered = {dice}. Please enter number greater tham 1.')
         return

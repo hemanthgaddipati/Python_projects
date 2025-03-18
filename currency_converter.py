@@ -17,6 +17,12 @@ CURRENCY CONVERTER:
 '''
 
 def get_amount():
+    """
+    Prompts the user to enter an amount for conversion and validates the input.
+
+    Returns:
+        float: A valid positive amount entered by the user.
+    """
     while True:
         try:
             amount = float(input("Enter the amount: "))
@@ -28,6 +34,15 @@ def get_amount():
 
 
 def get_currency(label):
+    """
+    Prompts the user to select a currency and validates the input.
+
+    Args:
+        label (str): A label to indicate whether the currency is the source or target.
+
+    Returns:
+        str: A valid currency code selected by the user.
+    """
     currencies = ('USD', 'EUR', 'CAD', 'GBP', 'AUD', 'JPY', 'INR')
     while True:
         currency = input(f'{label} currency (USD/EUR/CAD/GBP/AUD/JPY/INR): ').upper()
@@ -38,6 +53,17 @@ def get_currency(label):
 
 
 def convert(amount, source_currency, target_currency):
+    """
+    Converts an amount from one currency to another using fixed exchange rates.
+
+    Args:
+        amount (float): The amount to be converted.
+        source_currency (str): The currency code of the source currency.
+        target_currency (str): The currency code of the target currency.
+
+    Returns:
+        float: The converted amount in the target currency.
+    """
     exchange_rates = {
         'USD': {'EUR': 0.94, 'CAD': 1.45, 'GBP': 0.74, 'AUD': 1.49, 'JPY': 110.15, 'INR': 75.25},
         'CAD': {'EUR': 0.65, 'USD': 0.69, 'GBP': 0.51, 'AUD': 1.03, 'JPY': 75.86, 'INR': 51.87},
@@ -54,6 +80,12 @@ def convert(amount, source_currency, target_currency):
 
 
 def main():
+    """
+    The main function to run the Currency Converter program. It allows the user to 
+    convert an amount from one currency to multiple target currencies, displays the 
+    conversion results, and keeps a history of conversions during the session.
+    """
+
     history = []  # List to store the conversion history
 
     while True:

@@ -18,10 +18,41 @@ Number Guessing Game:
 from random import randint
 
 class NumberGuessingGame:
+    """
+    A class to represent the Number Guessing Game.
+
+    Attributes:
+        best_score (float): Tracks the fewest number of attempts it took to guess the number correctly.
+    """
+
     def __init__(self):
+        """
+        Initializes the NumberGuessingGame class.
+
+        Attributes:
+            best_score (float): Tracks the fewest number of attempts it took to 
+                                guess the number correctly.
+        """
         self.best_score = float('inf')  # Initialize the best score to an infinite value
 
     def play_game(self, lucky_number_min, lucky_number_max):
+        """
+        Plays a single round of the number guessing game.
+
+        Args:
+            lucky_number_min (int): The minimum value for the range of the lucky number.
+            lucky_number_max (int): The maximum value for the range of the lucky number.
+
+        Gameplay:
+            - The computer randomly selects a number within the specified range.
+            - The player has a limited number of attempts to guess the number.
+            - Provides feedback if the guess is too high, too low, or correct.
+            - Tracks and updates the best score if the player guesses the number in fewer attempts.
+
+        Raises:
+            ValueError: If the player's input is not a valid integer.
+        """
+
         lucky_number = randint(lucky_number_min, lucky_number_max)
         print(f'LUCKY NUMBER IS: {lucky_number}')
 

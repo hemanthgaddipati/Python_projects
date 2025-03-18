@@ -24,7 +24,12 @@ emojis = { ROCK: '🪨', SCISSORS: '✂️', PAPER: '📃' }
 choices = tuple(emojis.keys())
 
 def get_user_choice():
+    """
+    Prompts the user to select Rock, Paper, or Scissors and validates the input.
 
+    Returns:
+        str: The user's choice ('r' for Rock, 'p' for Paper, 's' for Scissors).
+    """
     while True:
         user_choice = input('Rock, Paper, Scissors? (r/p/s): ').lower()
         if user_choice in choices:
@@ -34,13 +39,28 @@ def get_user_choice():
     return
 
 def display_choice(user_choice, computer_choice):
+    """
+    Displays the choices made by the user and the computer using emojis.
 
+    Args:
+        user_choice (str): The user's choice ('r', 'p', or 's').
+        computer_choice (str): The computer's choice ('r', 'p', or 's').
+    """
     print(f'You chose {emojis[user_choice]}')
     print(f'Computer chose {emojis[computer_choice]}')
     return
 
 def determine_winner(user_choice, computer_choice):
+    """
+    Determines the winner of a single round of Rock, Paper, Scissors.
 
+    Args:
+        user_choice (str): The user's choice ('r', 'p', or 's').
+        computer_choice (str): The computer's choice ('r', 'p', or 's').
+
+    Returns:
+        str: The winner of the round ('You', 'Computer', or None for a tie).
+    """
     winner = None
     if user_choice == computer_choice:
         print('Tie!!')
@@ -56,7 +76,18 @@ def determine_winner(user_choice, computer_choice):
     return winner
 
 def play_game():
+    """
+    Runs the Rock, Paper, Scissors game.
 
+    Gameplay:
+        - The user plays against the computer in a best-of-three format.
+        - Tracks the number of wins, losses, and ties.
+        - Displays the choices and results of each round.
+        - Ends the game when either the user or the computer wins two rounds or the user decides to quit.
+
+    Returns:
+        None
+    """
     player_wins = 0
     player_losses = 0
     ties = 0

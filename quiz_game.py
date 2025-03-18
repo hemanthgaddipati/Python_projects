@@ -25,6 +25,15 @@ ANSWER = 'answer'
 categories_dict = {1: 'Geography', 2: 'Science', 3: 'History'}
 
 def ask_category(categories):
+    """
+    Prompts the user to select a category from the available options.
+
+    Args:
+        categories (dict): A dictionary of category IDs and their corresponding names.
+
+    Returns:
+        int: The ID of the selected category.
+    """
     categories_list = ['{}. {}'.format(key, value) for key, value in categories.items()]
     print('Hello welcome to the Quiz game!!')
     print()
@@ -39,19 +48,49 @@ def ask_category(categories):
     return selection
 
 def ask_question(question_number, question, options):
+    """
+    Displays a question and its options to the user and prompts for an answer.
+
+    Args:
+        question_number (int): The number of the current question.
+        question (str): The question text.
+        options (list): A list of options for the question.
+
+    Returns:
+        str: The user's answer in uppercase format.
+    """
     print(f'Question {question_number}: {question}')
     for option in options:
         print(option)
     return input('Your answer: ').upper().strip()
 
 def get_questions_by_category(category_name, quiz_data):
+    """
+    Retrieves the list of questions for a specific category.
+
+    Args:
+        category_name (str): The name of the category to retrieve questions for.
+        quiz_data (list): A list of dictionaries containing quiz data.
+
+    Returns:
+        list: A list of questions for the specified category, or None if the category is not found.
+    """
     for category in quiz_data:
         if category[CATEGORY].lower() == category_name.lower():
             return category[QUESTIONS]
     return None
 
 def run_quiz(quiz, categories):
+    """
+    Runs the quiz for the selected category, evaluates the user's answers, and calculates the score.
 
+    Args:
+        quiz (list): A list of dictionaries containing quiz data.
+        categories (dict): A dictionary of category IDs and their corresponding names.
+
+    Returns:
+        None
+    """
     quiz_category = ask_category(categories)
     quiz_by_category = get_questions_by_category(categories_dict[quiz_category], quiz)
 
@@ -74,7 +113,17 @@ def run_quiz(quiz, categories):
     return
 
 def main():
+    """
+    The main function to run the Quiz Game.
 
+    Features:
+        - Loads quiz data with multiple categories and questions.
+        - Allows the user to select a category and answer questions.
+        - Displays the final score at the end of the quiz.
+
+    Returns:
+        None
+    """
     quiz = [
         {
             CATEGORY: 'Geography',
@@ -152,7 +201,6 @@ def main():
             ]
         }
     ]
-
 
     run_quiz(quiz, categories_dict)
 

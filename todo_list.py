@@ -18,6 +18,13 @@ TO-DO List Application:
 task_actions = ['1. View Tasks', '2. Add a Task', '3. Remove a Task', '4. Exit']
 
 def get_response():
+    """
+    Displays the To-Do List menu and prompts the user to select an action.
+
+    Returns:
+        int: The user's menu selection 
+            (1 for View Tasks, 2 for Add a Task, 3 for Remove a Task, 4 for Exit).
+    """
     print('Todo List Menu: ')
     for action in task_actions:
         print(action)
@@ -31,6 +38,15 @@ def get_response():
             return selection
 
 def view_tasks(tasks):
+    """
+    Displays the current list of tasks in the To-Do list.
+
+    Args:
+        tasks (list): The list of tasks to display.
+
+    Returns:
+        None
+    """
     task_number = 1
     print('Here are the tasks in your To-Do: ')
     for task in tasks:
@@ -39,11 +55,29 @@ def view_tasks(tasks):
     return
 
 def add_task(tasks):
+    """
+    Prompts the user to enter a new task and adds it to the To-Do list.
+
+    Args:
+        tasks (list): The current list of tasks.
+
+    Returns:
+        list: The updated list of tasks with the new task added.
+    """
     new_task = input('Enter a new task: ').strip()
     tasks.append(new_task)
     return tasks
 
 def remove_task(tasks):
+    """
+    Prompts the user to select a task to remove from the To-Do list.
+
+    Args:
+        tasks (list): The current list of tasks.
+
+    Returns:
+        list: The updated list of tasks with the selected task removed.
+    """
     print('Here are the list of tasks. Please select task to remove: ')
     view_tasks(tasks)
 
@@ -57,6 +91,17 @@ def remove_task(tasks):
             return tasks
 
 def main():
+    """
+    The main function to run the To-Do List application.
+
+    Features:
+        - Displays a menu with options to view tasks, add tasks, remove tasks, or exit.
+        - Allows the user to manage their To-Do list interactively.
+        - Handles user input and updates the task list accordingly.
+
+    Returns:
+        None
+    """
     tasks_list = []
 
     choise = get_response()

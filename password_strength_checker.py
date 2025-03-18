@@ -13,6 +13,28 @@
 from re import search
 
 def check_strength(password):
+    """
+    Evaluates the strength of a given password based on specific criteria.
+
+    Criteria:
+        - Length of at least 8 characters.
+        - Inclusion of lowercase letters.
+        - Inclusion of uppercase letters.
+        - Inclusion of numbers.
+        - Inclusion of special characters (@, #, $, %, +, =, !).
+
+    Args:
+        password (str): The password to evaluate.
+
+    Returns:
+        int: A strength score ranging from 0 to 5, where:
+             - 0: Very Weak
+             - 1: Weak
+             - 2: Weak
+             - 3: Medium
+             - 4: Strong
+             - 5: Very Strong
+    """
     strength = 0
 
     if len(password) >= 8:
@@ -29,6 +51,15 @@ def check_strength(password):
     return strength
 
 def main():
+    """
+    The main function to run the Password Strength Checker program. It prompts the user 
+    to enter a password, evaluates its strength using the `check_strength` function, and 
+    categorizes the password as Very Weak, Weak, Medium, Strong, or Very Strong.
+
+    Handles:
+        - Input from the user.
+        - Displays the password strength category based on the score.
+    """
     password = input('Enter a password: ')
     strength = check_strength(password)
 
@@ -39,9 +70,9 @@ def main():
     elif strength == 3:
         print('Password strength: Medium.')
     elif strength == 2:
-        print('Password strength: Week.')
+        print('Password strength: Weak.')
     else:
-        print('Password strength: Very Week.')
+        print('Password strength: Very Weak.')
 
 
 if __name__ == '__main__':

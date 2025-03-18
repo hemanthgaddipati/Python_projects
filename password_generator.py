@@ -13,6 +13,21 @@ import random
 import string
 
 def generate_password(length, include_uppercase, include_numbers, include_special):
+    """
+    Generates a random password based on the specified criteria.
+
+    Args:
+        length (int): The length of the password to be generated.
+        include_uppercase (bool): Whether to include uppercase letters in the password.
+        include_numbers (bool): Whether to include numbers in the password.
+        include_special (bool): Whether to include special characters in the password.
+
+    Returns:
+        str: The generated password.
+
+    Raises:
+        ValueError: If the password length is too short for the specified criteria.
+    """
 
     if length < (include_uppercase + include_numbers + include_special):
         raise ValueError('Password length is too short for the specified criteria')
@@ -43,6 +58,15 @@ def generate_password(length, include_uppercase, include_numbers, include_specia
     return ''.join(password_list)
 
 def main():
+    """
+    The main function to run the Password Generator program. It prompts the user for 
+    password criteria (length, inclusion of uppercase letters, numbers, and special characters), 
+    generates a password based on the input, and displays it.
+
+    Handles:
+        - Input validation for password length and criteria.
+        - Exceptions for invalid input.
+    """
 
     length = int(input('Enter Password length: '))
     include_uppercase = input('Include Uppercase letters? (y/n): ').lower() == 'y'
