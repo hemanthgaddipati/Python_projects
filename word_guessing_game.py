@@ -22,6 +22,13 @@ import re
 # read words from text file
 def read_words():
 
+    """
+    Reads words from text file
+
+    Returns:
+        List: list of words in the text file or returns a empty list
+    """
+
     try:
         with open('./helper_files/words.txt', 'r', encoding='utf-8') as file:
             words = file.read().splitlines()
@@ -31,6 +38,17 @@ def read_words():
         return []
 
 def display_word(secret_word, guessed_letters):
+
+    """
+    Displays word on the terminal for the user
+    
+    Args:
+        secret_word(string): The word to be guessed to win
+        guessed_letters(List): contains the list of letters the user guessed.
+        
+    Returns:
+
+    """
 
     word_to_display = ''
 
@@ -43,6 +61,16 @@ def display_word(secret_word, guessed_letters):
     print(word_to_display)
 
 def get_guess(guessed_letters):
+
+    """
+    Prompts the player to enter a letter as their guess and validates the input.
+
+    Args:
+        guessed_letters (List): A list of letters that have already been guessed.
+
+    Returns:
+        str: A valid letter guessed by the player.
+    """
 
     while True:
         guess = input('Enter a letter: ')
@@ -58,6 +86,16 @@ def get_guess(guessed_letters):
 
 def is_word_guessed(secret_word, guessed_letters):
 
+    """
+    Prompts the player to enter a letter as their guess and validates the input.
+
+    Args:
+        guessed_letters (List): A list of letters that have already been guessed.
+
+    Returns:
+        str: A valid letter guessed by the player.
+    """
+
     for letter in secret_word:
         if letter not in guessed_letters:
             return False
@@ -65,6 +103,13 @@ def is_word_guessed(secret_word, guessed_letters):
     return True
 
 def main():
+
+    """
+    The main function to run the Word Guessing Game. It initializes the game,
+    reads the list of words, selects a random word, and manages the game loop
+    where the player guesses letters until they either guess the word or run out
+    of attempts.
+    """
 
     words = read_words()
 
